@@ -8,7 +8,7 @@ export interface FetchMoviesResponse {
   total_results: number;
 }
 
-export async function fetchMovies(query: string): Promise<FetchMoviesResponse> {
+export async function fetchMovies(query: string, page: number): Promise<FetchMoviesResponse> {
   const BASE_URL = 'https://api.themoviedb.org/3/search/movie';
   const token = import.meta.env.VITE_TMDB_TOKEN;
 
@@ -19,7 +19,7 @@ export async function fetchMovies(query: string): Promise<FetchMoviesResponse> {
     params: {
       query,
       
-      page: 1,
+      page,
     },
   });
 
